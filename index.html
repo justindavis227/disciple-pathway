@@ -212,7 +212,13 @@ section.foundation{padding:70px 0 60px;margin-top:40px;position:relative;backgro
 /* ---------- CLOSING ---------- */
 section.closing{padding:60px 0 34px;text-align:center}
 .closing .big{font-family:var(--font-display);font-weight:800;font-size:clamp(15px,4vw,38px);letter-spacing:-.03em;line-height:1.02;white-space:nowrap}
-.closing .big span{color:var(--accent)}
+.closing .big .accent{color:var(--accent)}
+@media(max-width:600px){
+  h1{font-size:clamp(28px,9vw,42px)}
+  h1 .hl{white-space:normal}
+  .closing .big{white-space:normal;font-size:clamp(26px,8vw,40px);line-height:1.14}
+  .closing .big .bl{display:block}
+}
 .closing p{color:var(--ink-soft);max-width:640px;margin:18px auto 0;font-size:16.5px}
 .site-footer{background:var(--dark);color:#fff;text-align:center;padding:74px 0 56px;margin-top:54px}
 .site-footer .wrap{max-width:760px}
@@ -479,7 +485,7 @@ section.closing{padding:60px 0 34px;text-align:center}
 
 <section class="closing">
   <div class="wrap">
-    <p class="big">One pathway. <span>Every ministry. Every campus.</span></p>
+    <p class="big"><span class="bl">One pathway.</span> <span class="bl accent">Every ministry.</span> <span class="bl accent">Every campus.</span></p>
     <p>Whether Men’s, Women’s, Kid’s, Student’s, Groups, Guest Experience — different front doors, but the <em>same</em> pathway, language, and tool to measure growth: people responding to Jesus’ next challenge. Each ministry plugs its own next steps into this shared framework.</p>
   </div>
 </section>
