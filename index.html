@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Disciple-Making Pathway — Like Jesus brand PROOF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* =====================================================================
+   PROOF — "VERTICAL JOURNEY" reskinned to the LIKE JESUS brand.
+   Colors + fonts + feel pulled live from likejesus.church (2026-06-09):
+     coral #ff7250 (primary)  · teal #16a9bf · green #3bbc9a · indigo #655dff
+     dark band #0c1f25 · text #252525 / #676767 · DIN-style bold sans.
+   STRUCTURE/FLOW IS UNCHANGED from index-vertical.html — this is a
+   pure visual reskin so the colors + overall feel pop harder.
+   ===================================================================== */
+:root{
+  --bg:#ffffff; --surface:#ffffff; --alt:#f8f8f8; --ink:#252525; --ink-soft:#676767;
+  --line:#e3e7ea; --accent:#ff7250; --accent-2:#16a9bf; --dark:#0c1f25;
+  /* chair journey: warm coral → cool indigo (Like Jesus accent set) */
+  --c1:#ff7250; --c2:#16a9bf; --c3:#2fae93; --c4:#655dff;
+  --font-display:'Barlow Semi Condensed', 'Arial Narrow', sans-serif;
+  --font-body:'Barlow', system-ui, sans-serif;
+  --radius:18px;
+  --shadow:0 1px 2px rgba(12,31,37,.05), 0 14px 34px rgba(12,31,37,.09);
+  --maxw:880px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- STICKY MINI-MAP ---------- */
+.minimap{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.minimap .row{max-width:var(--maxw);margin:0 auto;display:flex;gap:6px;padding:10px 24px;justify-content:center}
+.mm{display:flex;align-items:center;gap:9px;padding:7px 13px;border-radius:999px;background:transparent;border:none;cursor:pointer;font-family:var(--font-body);text-align:left;transition:background .18s,color .18s;color:var(--ink-soft)}
+.mm:hover{background:var(--alt)}
+.mm .ic{width:27px;height:27px;flex:none;display:block;opacity:.45;transition:opacity .2s,transform .2s}
+.mm .ic .cush{fill:var(--mc)}
+.mm .ic .frame{stroke:#c8ced2}
+.mm .t{font-family:var(--font-display);font-weight:700;font-size:13.5px;letter-spacing:-.02em;white-space:nowrap}
+.mm.active{color:var(--ink)}
+.mm.active .ic{opacity:1;transform:scale(1.14)}
+.mm.active{background:var(--alt)}
+@media(max-width:600px){.mm .t{display:none}.mm{padding:6px 7px}.minimap .row{gap:8px}}
+
+/* ---------- HERO ---------- */
+header.hero{padding:40px 0 60px;text-align:center}
+.hero-block{width:90%;max-width:var(--hero-mw,1140px);margin:0 auto;background:var(--dark);border-radius:clamp(20px,3vw,34px);padding:clamp(44px,5vw,76px) clamp(26px,4vw,60px);box-shadow:0 30px 80px rgba(12,31,37,.18);container-type:inline-size;transition:max-width .18s ease-out}
+.eyebrow{font-family:var(--font-display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:var(--accent);margin-bottom:14px}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(18px,5.5cqw,56px);line-height:1.07;letter-spacing:-.035em;color:#fff;max-width:none;margin:0 auto}
+h1 .hl{display:block;white-space:nowrap}
+.uline{position:relative;white-space:nowrap}
+.squiggle{position:absolute;left:-3%;bottom:-.22em;width:106%;height:.46em;overflow:visible}
+.squiggle path{fill:none;stroke:var(--accent);vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;stroke-width:8}
+.uline.drawn .squiggle path{animation:draw 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:26px 46px;max-width:880px;margin:30px auto 0;text-align:left}
+.intro p{font-size:16px;line-height:1.66;color:rgba(255,255,255,.84)}
+.intro strong{color:var(--accent);font-weight:700}
+@media(max-width:680px){.intro{grid-template-columns:1fr;gap:16px}}
+.scrollcue{margin-top:26px;font-family:var(--font-display);font-weight:600;color:rgba(255,255,255,.85);font-size:14px;letter-spacing:.02em;text-transform:uppercase}
+.scrollcue i{display:block;width:11px;height:11px;margin:8px auto 0;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(45deg)}50%{transform:translateY(5px) rotate(45deg)}}
+
+/* ---------- THE PATH ---------- */
+section.path{padding:34px 0 0}
+.stage,.segment{display:grid;grid-template-columns:64px 1fr;gap:0 20px;position:relative}
+.stage::before,.segment::before{content:"";position:absolute;left:31px;top:0;bottom:0;width:3px;background:var(--spine,var(--line));border-radius:3px}
+.segment::before{background:linear-gradient(180deg,var(--catc) 0,var(--catc) 8px,var(--catc2) calc(100% - 56px),var(--catc2) 100%)}
+.stage:first-child::before{top:34px}
+.segment .node-col{position:relative}
+
+.node{width:64px;height:64px;border-radius:50%;background:var(--cc);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:26px;box-shadow:0 6px 18px color-mix(in srgb,var(--cc) 45%,transparent);position:relative;z-index:2}
+.node small{position:absolute;inset:auto auto -6px auto;bottom:-7px;font-size:8px}
+.stage .node-col{perspective:760px}
+@keyframes nodecoin{
+  0%{transform:rotateY(0deg);box-shadow:0 6px 18px color-mix(in srgb,var(--cc) 45%,transparent);filter:brightness(1)}
+  12.5%{transform:rotateY(90deg);box-shadow:0 3px 7px color-mix(in srgb,var(--cc) 26%,transparent);filter:brightness(1.25)}
+  25%{transform:rotateY(180deg);box-shadow:0 10px 24px color-mix(in srgb,var(--cc) 52%,transparent);filter:brightness(1)}
+  37.5%{transform:rotateY(270deg);box-shadow:0 3px 7px color-mix(in srgb,var(--cc) 26%,transparent);filter:brightness(1.25)}
+  50%{transform:rotateY(360deg);box-shadow:0 6px 18px color-mix(in srgb,var(--cc) 45%,transparent);filter:brightness(1)}
+  62.5%{transform:rotateY(450deg);box-shadow:0 3px 7px color-mix(in srgb,var(--cc) 26%,transparent);filter:brightness(1.25)}
+  75%{transform:rotateY(540deg);box-shadow:0 10px 24px color-mix(in srgb,var(--cc) 52%,transparent);filter:brightness(1)}
+  87.5%{transform:rotateY(630deg);box-shadow:0 3px 7px color-mix(in srgb,var(--cc) 26%,transparent);filter:brightness(1.25)}
+  100%{transform:rotateY(720deg);box-shadow:0 6px 18px color-mix(in srgb,var(--cc) 45%,transparent);filter:brightness(1)}
+}
+.node.spin{animation:nodecoin 1.7s cubic-bezier(.2,.6,.3,1)}
+
+.stage{padding-bottom:0}
+.card{background:var(--cc);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 34px 30px;color:#fff;margin-bottom:10px;position:relative}
+.card .onramp-tab{position:absolute;top:-15px;left:24px;background:#fff;color:var(--ink);
+  font-family:var(--font-display);font-weight:700;font-size:13.5px;
+  border:2px solid var(--cc);border-radius:999px;padding:6px 16px;box-shadow:0 4px 11px rgba(12,31,37,.12)}
+.card .head{display:flex;align-items:center;gap:14px;margin:6px 0 10px}
+.chair-icon{width:54px;height:54px;object-fit:contain;padding:7px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2);flex:none}
+.card .cnum{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.card .role{font-family:var(--font-display);font-weight:800;font-size:30px;letter-spacing:-.03em;line-height:1}
+.card .invite{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:16px;color:rgba(255,255,255,.96)}
+.card .body{font-size:15px;line-height:1.56;color:rgba(255,255,255,.94);margin-top:6px;max-width:60ch}
+.card .win{margin-top:13px;padding-top:12px;border-top:1px solid rgba(255,255,255,.28);font-size:14.5px;color:#fff}
+.card .win b{display:block;font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.86);margin-bottom:2px}
+
+/* flip card */
+.flip{perspective:1600px;cursor:pointer}
+.flip:focus-visible{outline:3px solid var(--accent);outline-offset:5px;border-radius:22px}
+.flip-inner{position:relative;transition:transform .55s cubic-bezier(.4,.05,.2,1);transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face-back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.back-eyebrow{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.back-title{font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:-.025em;line-height:1.06;color:#fff}
+.back-sub{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:16px;color:rgba(255,255,255,.96)}
+.back-body{font-size:15px;line-height:1.55;color:rgba(255,255,255,.94);max-width:58ch}
+.flip-hint{position:absolute;font-family:var(--font-body);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s}
+.face-front .flip-hint{top:18px;right:20px}
+.face-back .flip-hint{bottom:16px;right:20px}
+.flip:hover .flip-hint{color:#fff}
+
+/* catalyst segment */
+.segment{padding:8px 0 56px}
+.segment .node-col{display:flex;align-items:flex-start;justify-content:center;padding-top:4px}
+.segment .dotnode{display:none}
+.cats{padding:18px 20px 20px;border-radius:16px;background:linear-gradient(180deg,var(--catc),var(--catc2));box-shadow:var(--shadow)}
+.cats .glabel{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.95);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.cats .glabel::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.45)}
+.catrow{display:flex;flex-wrap:wrap;gap:10px}
+.cat{flex:1 1 200px;min-height:128px;cursor:pointer;perspective:1000px;border-radius:12px}
+.cat:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cat-inner{position:relative;width:100%;min-height:128px;transition:transform .55s cubic-bezier(.4,.05,.2,1);transform-style:preserve-3d}
+.cat.flipped .cat-inner{transform:rotateY(180deg)}
+.cat-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 4px 12px rgba(12,31,37,.16);display:flex;flex-direction:column;justify-content:center}
+.cat-back{transform:rotateY(180deg)}
+.cat b{display:block;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink)}
+.cat small{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.cat-back p{font-size:12.5px;line-height:1.46;color:var(--ink-soft);margin:0}
+.cat-hint{position:absolute;top:9px;right:12px;font-size:11px;font-weight:700;color:var(--ink-soft);opacity:.5}
+.cat-back .cat-hint{top:auto;bottom:9px}
+
+@media(max-width:600px){
+  .stage,.segment{grid-template-columns:46px 1fr;gap:0 14px}
+  .stage::before,.segment::before{left:22px}
+  .node{width:46px;height:46px;font-size:18px}
+  .segment .dotnode{margin-left:16px}
+  .card .role{font-size:24px}
+}
+
+/* ---------- FOUNDATION (dark band — Like Jesus #0c1f25) ---------- */
+section.foundation{padding:70px 0 60px;margin-top:40px;position:relative;background:var(--dark);color:#fff}
+.under-cue{position:absolute;top:-24px;left:50%;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:var(--accent);box-shadow:0 8px 20px rgba(255,114,80,.4);z-index:3;display:flex;align-items:center;justify-content:center}
+.under-cue i{display:block;width:11px;height:11px;border-right:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:translateY(-3px) rotate(45deg)}
+.section-head{text-align:center;margin-bottom:30px}
+.section-head .eyebrow{margin-bottom:10px;color:var(--accent)}
+.section-head h2{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.4vw,42px);letter-spacing:-.03em;color:#fff}
+.section-head p{color:rgba(255,255,255,.74);max-width:620px;margin:10px auto 0}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fcard{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+.fcard h4{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-.02em;margin-bottom:8px;color:var(--ink)}
+.fcard p{font-size:15px;color:var(--ink-soft)}
+.circles{position:relative;width:100%;aspect-ratio:100/84;margin:18px 0 8px;border-radius:18px;overflow:hidden;container-type:inline-size;background:radial-gradient(125% 130% at 50% 30%,#13313a 0%,#0c1f25 60%,#081519 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),inset 0 -44px 90px rgba(0,0,0,.3)}
+.ccircle{position:absolute;width:46cqw;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%)}
+.c-unbeliever{left:33%;top:34%;background:rgba(255,114,80,.82)}
+.c-newbeliever{left:67%;top:34%;background:rgba(22,169,191,.78)}
+.c-accountable{left:50%;top:64%;background:rgba(101,93,255,.78)}
+.cc-names{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;font-family:var(--font-body);font-weight:600;font-size:clamp(11px,3.7cqw,18px);line-height:1.34;text-shadow:0 1px 5px rgba(0,0,0,.28)}
+.c-unbeliever .cc-names{left:42%;top:39%}
+.c-newbeliever .cc-names{left:58%;top:39%}
+.c-accountable .cc-names{left:50%;top:65%}
+.cc-lab{position:absolute;font-size:clamp(9px,3cqw,13px);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-display)}
+.lab-unb{top:3.5%;left:5%;color:#ffb39c}
+.lab-new{top:3.5%;right:5%;color:#86dbe8}
+.lab-acc{bottom:3.5%;left:50%;transform:translateX(-50%);color:#b5b0ff}
+.circles-cap{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.circles-cap b{color:var(--ink-soft)}
+.circle-q{margin-top:11px;display:flex;flex-direction:column;gap:6px}
+.circle-q p{font-size:13px;color:var(--ink-soft);line-height:1.4;margin:0}
+.circle-q strong{font-family:var(--font-display);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:12px}
+/* Circles of Concern → flip to the "My Circles" pocket-card opener */
+.mc-flip{position:relative;cursor:pointer}
+.mc-inner{position:relative}
+.mc-face{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;box-sizing:border-box;transition:opacity .35s ease}
+.mc-front{position:relative;display:flex;flex-direction:column;cursor:pointer}
+.mc-front h4{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-.02em;margin:0 0 8px;color:var(--ink)}
+.mc-front>p{font-size:15px;line-height:1.5;color:var(--ink-soft);margin:0}
+.mc-flip.flipped .mc-front{opacity:0;pointer-events:none}
+.mc-cue{margin:16px auto 0;background:transparent;border:1px solid var(--line);color:var(--ink-soft);font-family:var(--font-display);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background .18s,color .18s}
+.mc-cue:hover,.mc-cue:focus-visible{background:var(--alt);color:var(--ink);outline:none}
+.mc-back{position:absolute;inset:0;opacity:0;pointer-events:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.mc-flip.flipped .mc-back{opacity:1;pointer-events:auto}
+.mc-prev-eyebrow{font-family:var(--font-display);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--accent);margin-bottom:8px}
+.mc-prev-title{font-family:var(--font-display);font-weight:800;font-size:30px;letter-spacing:-.02em;margin:0;color:var(--ink)}
+.mc-prev-sub{font-size:13.5px;line-height:1.5;color:var(--ink-soft);max-width:32ch;margin:8px auto 0}
+.mc-prev-venn{position:relative;width:156px;height:122px;margin:20px auto 4px}
+.mc-pc{position:absolute;width:80px;height:80px;border-radius:50%;border:2px solid;box-sizing:border-box}
+.mc-pc.o{left:6px;top:0;border-color:#CD6248}
+.mc-pc.t{right:6px;top:0;border-color:#188698}
+.mc-pc.p{left:38px;top:42px;border-color:#5250D0}
+.mc-open-cta{display:inline-block;margin-top:18px;font-family:var(--font-display);font-weight:700;font-size:14px;color:#fff;text-decoration:none;background:var(--accent);padding:12px 24px;border-radius:999px;box-shadow:0 8px 20px rgba(255,114,80,.32)}
+.mc-open-cta:hover{background:#e85d39}
+.mc-flipback{position:absolute;top:14px;right:16px;background:var(--alt);border:1px solid var(--line);color:var(--ink-soft);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;line-height:1}
+.assess-step{display:flex;align-items:center;gap:10px;margin-top:10px;padding-left:18px;font-size:14.5px;color:var(--ink)}
+.assess-step .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+.assess-step strong{color:var(--accent)}
+.assess-cta{display:block;width:fit-content;margin:18px auto 0;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.02em;padding:14px 28px;
+  border-radius:34px 30px 32px 28px / 28px 32px 30px 34px;transition:transform .18s,box-shadow .18s;box-shadow:0 8px 20px rgba(255,114,80,.32)}
+.assess-cta:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,114,80,.42)}
+
+/* ---------- CLOSING ---------- */
+section.closing{padding:60px 0 34px;text-align:center}
+.closing .big{font-family:var(--font-display);font-weight:800;font-size:clamp(15px,4vw,38px);letter-spacing:-.03em;line-height:1.02;white-space:nowrap}
+.closing .big span{color:var(--accent)}
+.closing p{color:var(--ink-soft);max-width:640px;margin:18px auto 0;font-size:16.5px}
+.site-footer{background:var(--dark);color:#fff;text-align:center;padding:74px 0 56px;margin-top:54px}
+.site-footer .wrap{max-width:760px}
+.footer-eyebrow{font-family:var(--font-display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent);margin-bottom:20px}
+.footer-verse{font-family:var(--font-display);font-weight:600;font-style:italic;font-size:clamp(18px,2.7vw,27px);line-height:1.5;color:rgba(255,255,255,.93)}
+.footer-ref{font-family:var(--font-display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:rgba(255,255,255,.62);margin-top:18px}
+.footer-meta{margin-top:38px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:12.5px;letter-spacing:.04em;color:rgba(255,255,255,.55)}
+@media(max-width:620px){.f-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.squiggle path{animation:none!important;stroke-dashoffset:0}.scrollcue i{animation:none}.node.spin{animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- sticky mini-map -->
+<nav class="minimap" aria-label="Pathway progress">
+  <div class="row">
+    <button class="mm" data-go="assessment" style="--mc:var(--accent)"><svg class="ic" viewBox="0 0 100 100" aria-hidden="true"><path d="M32 12 V88" stroke="var(--mc)" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M32 18 H74 L62 34 L74 50 H32 Z" fill="var(--mc)"/></svg><span class="t">Assess</span></button>
+    <button class="mm" data-go="stage1" style="--mc:var(--c1)"><img class="ic" src="images/Chair-1-red-flat.png" alt="" /><span class="t">Seeker</span></button>
+    <button class="mm" data-go="stage2" style="--mc:var(--c2)"><img class="ic" src="images/Chair-2-blue-flat.png" alt="" /><span class="t">Believer</span></button>
+    <button class="mm" data-go="stage3" style="--mc:var(--c3)"><img class="ic" src="images/Chair-3-green-flat.png" alt="" /><span class="t">Worker</span></button>
+    <button class="mm" data-go="stage4" style="--mc:var(--c4)"><img class="ic" src="images/Chair-4-purple-flat.png" alt="" /><span class="t">Disciple-Maker</span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-block">
+    <div class="eyebrow">Southeast&nbsp;·&nbsp;Disciple-Making Pathway</div>
+    <h1><span class="hl">Build a Disciple-Making <span class="uline">Culture<svg class="squiggle" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M5,23 C44,5 78,6 110,21 C142,36 168,7 208,19 C244,29 270,13 295,22"/></svg></span></span><span class="hl">from the life of Christ.</span></h1>
+    <div class="intro">
+      <p>A disciple-making pathway reveals <strong>where people are</strong> and <strong>where they need to go</strong> on their spiritual formation journey. A true disciple-making pathway creates a compelling picture to foster personal spiritual growth and mobilize disciple-makers.</p>
+      <p>The lost need found. The stalled need restarted. The curious need space. The believers need called. The workers need sent. The following is our simple pathway for anyone at Southeast to enter and join the adventure of becoming a disciple-maker.</p>
+    </div>
+    <p class="scrollcue">Begin the journey<i></i></p>
+  </div>
+</header>
+
+<section class="path">
+  <div class="wrap">
+
+    <!-- STAGE 1 -->
+    <div class="stage" id="stage1" style="--cc:var(--c1);--spine:var(--c1)">
+      <div class="node-col"><div class="node">1</div></div>
+      <div class="flip" tabindex="0" role="button" aria-label="Chair 1, Seeker — tap to see who sits here">
+        <div class="flip-inner">
+          <div class="card face face-front">
+            <span class="onramp-tab">“I want to explore Jesus”</span>
+            <div class="head">
+              <img class="chair-icon" src="images/Chair-1-red-flat.png" alt="" />
+              <div><span class="cnum">Chair 01 · Reach</span><br><span class="role">Seeker</span></div>
+            </div>
+            <span class="invite">“Come and See” · John 1:39</span>
+            <p class="body">Far from God or simply curious. Not a project — a person invited to explore who Jesus is, at their own pace, inside a real relationship.</p>
+            <div class="win"><b>The win</b>They take a genuine step toward Jesus — and someone is walking with them when they do.</div>
+            <span class="flip-hint">↻&nbsp;Who sits here</span>
+          </div>
+          <div class="card face face-back">
+            <span class="back-eyebrow">Who sits here</span>
+            <h3 class="back-title">“I want to explore Jesus”</h3>
+            <p class="back-sub">The starting line for the curious and the far-from-God.</p>
+            <p class="back-body">Someone doesn’t have to believe yet to take a step. For the person in Chair 1 the only ask is to come and see who Jesus is.</p>
+            <span class="flip-hint">↩&nbsp;Back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1 → 2 -->
+    <div class="segment" style="--spine:linear-gradient(var(--c1),var(--c2));--catc:var(--c1);--catc2:var(--c2)">
+      <div class="node-col"><div class="dotnode"></div></div>
+      <div class="cats">
+        <div class="glabel">How they move · 1 → 2</div>
+        <div class="catrow">
+          <div class="cat" tabindex="0" role="button" aria-label="Alpha — tap to learn more">
+            <div class="cat-inner">
+              <div class="cat-face cat-front"><b>Alpha</b><small>Exploratory study</small><span class="cat-hint" aria-hidden="true">↻</span></div>
+              <div class="cat-face cat-back"><p>Answers the real questions the next generation is asking about faith, life, and Jesus — a low-pressure on-ramp for the curious.</p><span class="cat-hint" aria-hidden="true">↩</span></div>
+            </div>
+          </div>
+          <div class="cat" tabindex="0" role="button" aria-label="Baptism Class — tap to learn more">
+            <div class="cat-inner">
+              <div class="cat-face cat-front"><b>Baptism Class</b><small>Understanding the commitment</small><span class="cat-hint" aria-hidden="true">↻</span></div>
+              <div class="cat-face cat-back"><p>Ensures someone grasps their decision for Christ.</p><span class="cat-hint" aria-hidden="true">↩</span></div>
+            </div>
+          </div>
+          <div class="cat" tabindex="0" role="button" aria-label="Next Steps Room — tap to learn more">
+            <div class="cat-inner">
+              <div class="cat-face cat-front"><b>Next Steps Room</b><small>Built into every service</small><span class="cat-hint" aria-hidden="true">↻</span></div>
+              <div class="cat-face cat-back"><p>Every weekend — a place to be relationally walked through a decision to follow Jesus, in person, right when someone is ready.</p><span class="cat-hint" aria-hidden="true">↩</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 2 -->
+    <div class="stage" id="stage2" style="--cc:var(--c2);--spine:var(--c2)">
+      <div class="node-col"><div class="node">2</div></div>
+      <div class="flip" tabindex="0" role="button" aria-label="Chair 2, Believer — tap to see who sits here">
+        <div class="flip-inner">
+          <div class="card face face-front">
+            <span class="onramp-tab">“I want to grow in Jesus”</span>
+            <div class="head">
+              <img class="chair-icon" src="images/Chair-2-blue-flat.png" alt="" />
+              <div><span class="cnum">Chair 02 · Build</span><br><span class="role">Believer</span></div>
+            </div>
+            <span class="invite">“Follow Me” · John 1:43</span>
+            <p class="body">Has put their faith in Jesus and is learning what it means to follow Him. The focus here is being built up in the basic rhythms and tenets of the faith.</p>
+            <div class="win"><b>The win</b>Rooted in the basics and owning their faith — no longer a spectator.</div>
+            <span class="flip-hint">↻&nbsp;Who sits here</span>
+          </div>
+          <div class="card face face-back">
+            <span class="back-eyebrow">Who sits here</span>
+            <h3 class="back-title">“I want to grow in Jesus”</h3>
+            <p class="back-sub">For the new or stalled believer ready to go deeper.</p>
+            <p class="back-body">A person who has said yes to Jesus but wants to actually follow Him sits in Chair 2 — ready to be built up in the basics of the faith.</p>
+            <span class="flip-hint">↩&nbsp;Back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 → 3 -->
+    <div class="segment" style="--spine:linear-gradient(var(--c2),var(--c3));--catc:var(--c2);--catc2:var(--c3)">
+      <div class="node-col"><div class="dotnode"></div></div>
+      <div class="cats">
+        <div class="glabel">How they move · 2 → 3</div>
+        <div class="catrow">
+          <div class="cat" tabindex="0" role="button" aria-label="Rooted — tap to learn more">
+            <div class="cat-inner">
+              <div class="cat-face cat-front"><b>Rooted</b><small>The basics of following Jesus</small><span class="cat-hint" aria-hidden="true">↻</span></div>
+              <div class="cat-face cat-back"><p>A study through the basic tenets of following Jesus, built around 7 rhythms of a healthy disciple — establishing the foundations every believer needs.</p><span class="cat-hint" aria-hidden="true">↩</span></div>
+            </div>
+          </div>
+          <div class="cat" tabindex="0" role="button" aria-label="Unleashed Workshop — tap to learn more">
+            <div class="cat-inner">
+              <div class="cat-face cat-front"><b>Unleashed Workshop</b><small>Gifts &amp; calling</small><span class="cat-hint" aria-hidden="true">↻</span></div>
+              <div class="cat-face cat-back"><p>Workshop for identifying your spiritual gifts and discerning where, and to what, God might be calling you. The bridge from growing to serving.</p><span class="cat-hint" aria-hidden="true">↩</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3 -->
+    <div class="stage" id="stage3" style="--cc:var(--c3);--spine:var(--c3)">
+      <div class="node-col"><div class="node">3</div></div>
+      <div class="flip" tabindex="0" role="button" aria-label="Chair 3, Worker — tap to see who sits here">
+        <div class="flip-inner">
+          <div class="card face face-front">
+            <span class="onramp-tab">“I want to explore my calling”</span>
+            <div class="head">
+              <img class="chair-icon" src="images/Chair-3-green-flat.png" alt="" />
+              <div><span class="cnum">Chair 03 · Equip</span><br><span class="role">Worker</span></div>
+            </div>
+            <span class="invite">“Fish for People” · Matthew 4:19</span>
+            <p class="body">Ready to serve and labor in the harvest. Discovering their gifts and calling, and stepping into the work of ministry alongside others.</p>
+            <div class="win"><b>The win</b>Serving on mission and equipped to lead — a laborer, not just an attender.</div>
+            <span class="flip-hint">↻&nbsp;Who sits here</span>
+          </div>
+          <div class="card face face-back">
+            <span class="back-eyebrow">Who sits here</span>
+            <h3 class="back-title">“I want to explore my calling”</h3>
+            <p class="back-sub">For the believer sensing there’s more to give.</p>
+            <p class="back-body">Someone ready to serve, discover their gifts, and labor in the harvest is in Chair 3, where we equip workers for the mission.</p>
+            <span class="flip-hint">↩&nbsp;Back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 → 4 -->
+    <div class="segment" style="--spine:linear-gradient(var(--c3),var(--c4));--catc:var(--c3);--catc2:var(--c4)">
+      <div class="node-col"><div class="dotnode"></div></div>
+      <div class="cats">
+        <div class="glabel">How they move · 3 → 4</div>
+        <div class="catrow">
+          <div class="cat" tabindex="0" role="button" aria-label="Like.Jesus — tap to learn more">
+            <div class="cat-inner">
+              <div class="cat-face cat-front"><b>Like.Jesus</b><small>Learning to make disciples from the life of Christ</small><span class="cat-hint" aria-hidden="true">↻</span></div>
+              <div class="cat-face cat-back"><p>Train up leaders in every ministry the same way, all formed by the life of Christ. This shared training is what keeps us on one pathway.</p><span class="cat-hint" aria-hidden="true">↩</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 4 -->
+    <div class="stage" id="stage4" style="--cc:var(--c4);--spine:var(--c4)">
+      <div class="node-col"><div class="node">4</div></div>
+      <div class="flip" tabindex="0" role="button" aria-label="Chair 4, Disciple-Maker — tap to see who sits here">
+        <div class="flip-inner">
+          <div class="card face face-front">
+            <span class="onramp-tab">“I want to make disciples”</span>
+            <div class="head">
+              <img class="chair-icon" src="images/Chair-4-purple-flat.png" alt="" />
+              <div><span class="cnum">Chair 04 · Multiply</span><br><span class="role">Disciple-Maker</span></div>
+            </div>
+            <span class="invite">“Bear Much Fruit” · John 15:8</span>
+            <p class="body">Reproducing. Leading in ministry and walking other people through this very same journey — the pathway is now running through them.</p>
+            <div class="win"><b>The win</b>They’re now helping others look more like Jesus.</div>
+            <span class="flip-hint">↻&nbsp;Who sits here</span>
+          </div>
+          <div class="card face face-back">
+            <span class="back-eyebrow">Who sits here</span>
+            <h3 class="back-title">“I want to make disciples”</h3>
+            <p class="back-sub">For the worker ready to reproduce.</p>
+            <p class="back-body">A person ready to lead others to become disciples and disciple-makers — no longer just serving, but multiplying.</p>
+            <span class="flip-hint">↩&nbsp;Back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="foundation">
+  <div class="under-cue" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Underneath the whole path</div>
+      <h2>Relationships, not a conveyor belt</h2>
+      <p>The tools above are how we move people — but the engine is relational. Two things run beneath every chair so this stays personal: people, not programs.</p>
+    </div>
+    <div class="f-grid">
+      <div class="mc-flip">
+        <div class="mc-inner">
+          <div class="mc-face mc-front">
+            <h4>Circles of Concern</h4>
+            <p>“One at a time” gets specific. Everyone has in mind the circle of people they’re committed to.</p>
+            <div class="circles" role="img" aria-label="Circles of Concern — three unbelievers, two new believers, one accountability partner">
+              <div class="ccircle c-unbeliever"><span class="cc-names">Tim<br>Greg<br>Jason</span></div>
+              <div class="ccircle c-newbeliever"><span class="cc-names">Mark<br>Aaron</span></div>
+              <div class="ccircle c-accountable"><span class="cc-names">Joseph&nbsp;Kerr</span></div>
+            </div>
+            <div class="circle-q">
+              <p><strong style="color:#ff7250">3&nbsp;&nbsp;Unbelievers</strong> — who are you praying for?</p>
+              <p><strong style="color:#16a9bf">2&nbsp;&nbsp;New Believers</strong> — who are you helping grow?</p>
+              <p><strong style="color:#655dff">1&nbsp;&nbsp;Accountability</strong> — who is helping you grow?</p>
+            </div>
+            <button class="mc-cue" type="button">Make your own card&nbsp;↻</button>
+          </div>
+          <div class="mc-back">
+            <div class="mc-prev-eyebrow">A pocket card</div>
+            <h4 class="mc-prev-title">My Circles</h4>
+            <p class="mc-prev-sub">Fill in who you’re walking with — then save a printable 4×6 to carry.</p>
+            <div class="mc-prev-venn" aria-hidden="true"><span class="mc-pc o"></span><span class="mc-pc t"></span><span class="mc-pc p"></span></div>
+            <a class="mc-open-cta" href="my-circles.html" target="_blank" rel="noopener">Tap to open &amp; fill in&nbsp;→</a>
+            <button class="mc-flipback" type="button" aria-label="Flip back">↩</button>
+          </div>
+        </div>
+      </div>
+      <div class="fcard" id="assessment">
+        <h4>The 4-Chair Assessment</h4>
+        <p>Before anyone takes a next step, they identify where they are. This assessment helps a person find their chair and gives them vision for what to grow into next.</p>
+        <div class="assess-step"><span class="dot"></span>Take the assessment → <strong>&nbsp;where are you?</strong></div>
+        <div class="assess-step"><span class="dot"></span>Take the step → <strong>&nbsp;what do you need to do?</strong></div>
+        <div class="assess-step"><span class="dot"></span>Fill out your circles → <strong>&nbsp;who can walk with you?</strong></div>
+        <a class="assess-cta" href="inventory.html">Take the 4-Chair Assessment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="big">One pathway. <span>Every ministry. Every campus.</span></p>
+    <p>Whether Men’s, Women’s, Kid’s, Student’s, Groups, Guest Experience — different front doors, but the <em>same</em> pathway, language, and tool to measure growth: people responding to Jesus’ next challenge. Each ministry plugs its own next steps into this shared framework.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-eyebrow">Our prayer for the next generation</div>
+    <p class="footer-verse">“Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen.”</p>
+    <div class="footer-ref">Ephesians 3:20–21</div>
+    <div class="footer-meta">Southeast Christian Church · Central Ministry Team · Disciple-Making Pathway</div>
+  </div>
+</footer>
+
+<script>
+/* hero underline draw */
+(function(){
+  var marks=document.querySelectorAll('.uline');
+  if(!('IntersectionObserver' in window)){marks.forEach(function(m){m.classList.add('drawn');});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('drawn');io.unobserve(e.target);}});},{threshold:0.6});
+  marks.forEach(function(m){io.observe(m);});
+})();
+
+/* flip cards */
+(function(){
+  document.querySelectorAll('.flip, .cat').forEach(function(f){
+    function toggle(){f.classList.toggle('flipped');f.setAttribute('aria-pressed',f.classList.contains('flipped'));}
+    f.addEventListener('click',toggle);
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
+})();
+
+/* mini-map */
+(function(){
+  var btns=Array.prototype.slice.call(document.querySelectorAll('.mm'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.getAttribute('data-go'));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+  });});
+  var watch=['stage1','stage2','stage3','stage4','assessment'].map(function(id){return document.getElementById(id);});
+  var firstChair=document.querySelector('.mm[data-go="stage1"]');
+  if(firstChair)firstChair.classList.add('active');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id=e.target.id;
+          btns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-go')===id);});
+        }
+      });
+    },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+    watch.forEach(function(s){if(s)io.observe(s);});
+  }
+})();
+
+/* numbered circles coin-spin once, the first time they scroll into view */
+(function(){
+  var nodes=document.querySelectorAll('.stage .node');
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('spin');io.unobserve(e.target);}
+    });
+  },{threshold:0.65});
+  nodes.forEach(function(n){io.observe(n);});
+})();
+
+/* hero block: width scrubs with scroll — widest at top, narrows on scroll down */
+(function(){
+  var block=document.querySelector('.hero-block');
+  var hero=document.querySelector('header.hero');
+  if(!block||!hero) return;
+  var MAXW=1140, MINW=760, ticking=false;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    block.style.setProperty('--hero-mw',MAXW+'px'); return;
+  }
+  function update(){
+    var dist=hero.offsetHeight*0.7||500;
+    var p=Math.min(Math.max(window.scrollY/dist,0),1);
+    var w=Math.round(MAXW-(MAXW-MINW)*p);
+    block.style.setProperty('--hero-mw',w+'px');
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+  window.addEventListener('resize',update,{passive:true});
+  update();
+})();
+
+/* Circles of Concern flip → opens the fillable My Circles card */
+(function(){
+  var fl=document.querySelector('.mc-flip');
+  if(!fl) return;
+  var front=fl.querySelector('.mc-front');
+  var back=fl.querySelector('.mc-back');
+  var fb=fl.querySelector('.mc-flipback');
+  front.addEventListener('click',function(){fl.classList.add('flipped');});
+  back.addEventListener('click',function(e){
+    if(e.target.closest('.mc-flipback')||e.target.closest('.mc-open-cta')) return;
+    window.open('my-circles.html','_blank','noopener');
+  });
+  if(fb) fb.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();fl.classList.remove('flipped');});
+})();
+</script>
+</body>
+</html>

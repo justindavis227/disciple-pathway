@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Southeast Disciple-Making Pathway — Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* =====================================================================
+   OPTION A — "POSTER"
+   Everything is visible at a glance. No click-to-reveal, no shared panel,
+   no how-to instructions. The page IS the explanation — built to be
+   projected to a room and understood in one look.
+   Brand tokens identical to index.html.
+   ===================================================================== */
+:root{
+  --bg:#fef0e4; --surface:#fffbf7; --ink:#1d1f21; --ink-soft:#616264;
+  --line:#d2d2d3; --accent:#112b52; --accent-2:#233e96;
+  --c1:#2f9bc4; --c1-tint:#dff3f8;
+  --c2:#3f7fae; --c2-tint:#d6e6ef;
+  --c3:#233e96; --c3-tint:#dde2f0;
+  --c4:#112b52; --c4-tint:#d4dae8;
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', system-ui, sans-serif;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(31,39,48,.04), 0 12px 30px rgba(31,39,48,.07);
+  --maxw:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- HERO ---------- */
+header.hero{padding:60px 0 22px;text-align:center}
+.eyebrow{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--accent);margin-bottom:16px}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,5.6vw,58px);line-height:1.14;letter-spacing:-.02em;color:var(--ink);max-width:24ch;margin:0 auto}
+.uline{position:relative;white-space:nowrap}
+.squiggle{position:absolute;left:-3%;bottom:-.24em;width:106%;height:.48em;overflow:visible}
+.squiggle path{fill:none;stroke:#e07a4f;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;stroke-width:7}
+.uline.drawn .squiggle path{animation:draw 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.lede{max-width:660px;margin:18px auto 0;font-size:clamp(16px,2.1vw,19px);color:var(--ink-soft)}
+.vision{margin:18px auto 0;font-family:var(--font-display);font-style:italic;font-weight:500;font-size:clamp(15px,2vw,18px);color:var(--ink);max-width:680px;text-align:center}
+
+/* ---------- PATHWAY ---------- */
+section.pathway{padding:30px 0 14px}
+.movement-legend{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 30px}
+.movement-legend span{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+
+/* the spine: chairs interleaved with catalyst rails */
+.track{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;gap:0}
+.unit{display:contents}
+
+/* a chair column = on-ramp tab + chair card, connected */
+.col{display:flex;flex-direction:column}
+.onramp{
+  text-align:center;font-family:var(--font-display);font-weight:600;font-style:italic;
+  font-size:13px;color:var(--ink);background:var(--surface);
+  border:1.5px solid var(--line);border-bottom:none;
+  border-radius:14px 14px 0 0;padding:11px 12px 14px;position:relative;z-index:1;
+}
+.onramp small{display:block;font-family:var(--font-body);font-style:normal;font-weight:600;
+  font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px}
+.chair{
+  background:var(--cc);border:none;border-radius:0 0 var(--radius) var(--radius);
+  box-shadow:var(--shadow);padding:16px 16px 18px;
+  display:flex;flex-direction:column;gap:7px;position:relative;flex:1;
+  margin-top:-6px;
+}
+.chair .topline{display:flex;align-items:center;gap:10px}
+.chair-icon{width:50px;height:50px;object-fit:contain;padding:6px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 7px rgba(0,0,0,.18);flex:none}
+.chair .cnum{font-family:var(--font-display);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.chair .role{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-.03em;color:#fff;line-height:1}
+.chair .invite{color:rgba(255,255,255,.95);font-weight:600;font-size:13px;font-style:italic;font-family:var(--font-display)}
+.chair .body{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.9)}
+.chair .win{margin-top:auto;padding-top:10px;border-top:1px solid rgba(255,255,255,.22);font-size:12.5px;color:rgba(255,255,255,.95)}
+.chair .win b{display:block;font-family:var(--font-display);font-weight:800;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:2px}
+
+/* catalyst rail between chairs */
+.gap{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:7px;padding:0 12px;min-width:150px;position:relative}
+.gap .arrow{position:absolute;top:50%;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--line) 18%,var(--line) 82%,transparent);z-index:0}
+.gap .glabel{font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:center;background:var(--bg);padding:0 6px;align-self:center;position:relative;z-index:1}
+.cat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;position:relative;z-index:1;text-align:center}
+.cat b{display:block;font-family:var(--font-display);font-weight:700;font-size:12.5px;color:var(--ink);line-height:1.15}
+.cat small{display:block;font-size:10.5px;color:var(--ink-soft);margin-top:1px}
+
+/* ---------- FOUNDATION ---------- */
+section.foundation{padding:70px 0 54px;margin-top:30px;position:relative;
+  background:linear-gradient(180deg,#f7e7d6 0%,#f0dbc4 100%);border-top:1px solid #ead5bc;
+  box-shadow:inset 0 26px 38px -26px rgba(31,39,48,.30)}
+.under-cue{position:absolute;top:-23px;left:50%;transform:translateX(-50%);width:46px;height:46px;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);z-index:3;display:flex;align-items:center;justify-content:center}
+.under-cue i{display:block;width:11px;height:11px;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:translateY(-3px) rotate(45deg)}
+.section-head{text-align:center;margin-bottom:26px}
+.section-head .eyebrow{margin-bottom:10px}
+.section-head h2{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,4vw,38px);letter-spacing:-.02em}
+.section-head p{color:var(--ink-soft);max-width:640px;margin:8px auto 0}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+.fcard h4{font-family:var(--font-display);font-weight:800;font-size:18px;margin-bottom:8px}
+.fcard p{font-size:14.5px;color:var(--ink-soft)}
+.circles{position:relative;width:100%;aspect-ratio:100/84;margin:18px 0 8px;border-radius:18px;overflow:hidden;container-type:inline-size;background:radial-gradient(125% 130% at 50% 30%,#1d345f 0%,#122244 52%,#0b1428 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),inset 0 -44px 90px rgba(0,0,0,.28)}
+.ccircle{position:absolute;width:46cqw;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%)}
+.c-unbeliever{left:33%;top:34%;background:rgba(221,104,76,.80)}
+.c-newbeliever{left:67%;top:34%;background:rgba(84,189,219,.72)}
+.c-accountable{left:50%;top:64%;background:rgba(104,100,233,.74)}
+.cc-names{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;font-family:var(--font-body);font-weight:600;font-size:clamp(11px,3.7cqw,18px);line-height:1.34;text-shadow:0 1px 5px rgba(0,0,0,.22)}
+.cc-lab{position:absolute;font-size:clamp(9px,3cqw,13px);font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.lab-unb{top:3.5%;left:5%;color:#f3a98e}
+.lab-new{top:3.5%;right:5%;color:#9adcef}
+.lab-acc{bottom:3.5%;left:50%;transform:translateX(-50%);color:#b0adf9}
+.circles-cap{font-size:12px;color:var(--ink-soft);margin-top:2px}
+.circles-cap b{color:var(--accent)}
+.assess-step{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:14px;color:var(--ink)}
+.assess-step .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-2);flex:none}
+.assess-cta{display:inline-block;margin-top:16px;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.04em;padding:11px 20px;border-radius:10px;transition:background .18s,transform .18s}
+.assess-cta:hover{background:#0c1f3d;transform:translateY(-2px)}
+
+/* ---------- CLOSING ---------- */
+section.closing{padding:54px 0 30px;text-align:center}
+.closing .big{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,4.5vw,44px);letter-spacing:-.02em;line-height:1.05}
+.closing .big span{color:var(--accent-2)}
+.closing p{color:var(--ink-soft);max-width:660px;margin:16px auto 0;font-size:16px}
+footer{padding:30px 0 50px;text-align:center;color:var(--ink-soft);font-size:12.5px}
+footer .draft{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--surface)}
+
+/* ---------- RESPONSIVE ---------- */
+/* ≤1080: 2×2 — chair stacked over its rail, on-ramps stay attached */
+@media(max-width:1080px){
+  .track{grid-template-columns:1fr 1fr;gap:34px 22px;align-items:start}
+  .unit{display:flex;flex-direction:column}
+  .gap{flex-direction:row;flex-wrap:wrap;justify-content:center;min-width:0;padding:14px 0 0;gap:8px}
+  .gap .arrow{display:none}
+  .gap .glabel{flex-basis:100%}
+  .cat{flex:1 1 30%}
+}
+/* ≤620: single column */
+@media(max-width:620px){
+  .track{grid-template-columns:1fr;gap:30px}
+  .f-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.squiggle path{animation:none!important;stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Southeast&nbsp;·&nbsp;Disciple-Making Pathway</div>
+    <h1>Build a Disciple-Making <span class="uline">Culture<svg class="squiggle" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M5,23 C44,5 78,6 110,21 C142,36 168,7 208,19 C244,29 270,13 295,22"/></svg></span> from the life of Christ.</h1>
+    <p class="lede">One journey, many on-ramps. Four chairs mark where a person is — and the catalysts in between are how we help them take the next step toward Jesus.</p>
+  </div>
+</header>
+
+<section class="pathway">
+  <div class="wrap">
+    <div class="movement-legend">
+      <span>Reach</span><span>Build</span><span>Equip</span><span>Multiply</span>
+    </div>
+
+    <div class="track">
+
+      <div class="unit">
+        <div class="col">
+          <div class="onramp"><small>On-ramp</small>“I want to explore Jesus”</div>
+          <div class="chair" style="--cc:var(--c1)">
+            <div class="topline">
+              <img class="chair-icon" src="images/chair-1.png" alt="" />
+              <div><span class="cnum">Chair 01 · Reach</span><br><span class="role">Seeker</span></div>
+            </div>
+            <span class="invite">“Come and See” · John 1:39</span>
+            <p class="body">Far from God or simply curious. Not a project — a person invited to explore who Jesus is, at their own pace, inside a real relationship.</p>
+            <div class="win"><b>The win</b>They take a genuine step toward Jesus — and someone is walking with them when they do.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gap">
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="glabel">Catalysts · 1 → 2</div>
+        <div class="cat"><b>Alpha</b><small>Exploratory study</small></div>
+        <div class="cat"><b>Baptism Class</b><small>Understanding the commitment</small></div>
+        <div class="cat"><b>Next Steps Room</b><small>Built into every service</small></div>
+      </div>
+
+      <div class="unit">
+        <div class="col">
+          <div class="onramp"><small>On-ramp</small>“I want to grow in Jesus”</div>
+          <div class="chair" style="--cc:var(--c2)">
+            <div class="topline">
+              <img class="chair-icon" src="images/chair-2.png" alt="" />
+              <div><span class="cnum">Chair 02 · Build</span><br><span class="role">Believer</span></div>
+            </div>
+            <span class="invite">“Follow Me” · John 1:43</span>
+            <p class="body">Has put their faith in Jesus and is learning what it means to follow Him. The focus: being built up in the basic rhythms and tenets of the faith.</p>
+            <div class="win"><b>The win</b>Rooted in the basics and owning their faith — no longer a spectator.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gap">
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="glabel">Catalysts · 2 → 3</div>
+        <div class="cat"><b>Rooted</b><small>The basics of following Jesus</small></div>
+        <div class="cat"><b>Unleashed Workshop</b><small>Gifts &amp; calling</small></div>
+      </div>
+
+      <div class="unit">
+        <div class="col">
+          <div class="onramp"><small>On-ramp</small>“I want to explore my calling”</div>
+          <div class="chair" style="--cc:var(--c3)">
+            <div class="topline">
+              <img class="chair-icon" src="images/chair-3.png" alt="" />
+              <div><span class="cnum">Chair 03 · Equip</span><br><span class="role">Worker</span></div>
+            </div>
+            <span class="invite">“Fish for People” · Matthew 4:19</span>
+            <p class="body">Ready to serve and labor in the harvest. Discovering their gifts and calling, and stepping into the work of ministry alongside others.</p>
+            <div class="win"><b>The win</b>Serving on mission and equipped to lead — a laborer, not just an attender.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gap">
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="glabel">Catalysts · 3 → 4</div>
+        <div class="cat"><b>Like Jesus Content</b><small>Walk / Live Like Jesus · 4-Chair Book</small></div>
+      </div>
+
+      <div class="unit">
+        <div class="col">
+          <div class="onramp"><small>On-ramp</small>“I want to make disciples”</div>
+          <div class="chair" style="--cc:var(--c4)">
+            <div class="topline">
+              <img class="chair-icon" src="images/chair-4.png" alt="" />
+              <div><span class="cnum">Chair 04 · Multiply</span><br><span class="role">Disciple-Maker</span></div>
+            </div>
+            <span class="invite">“Bear Much Fruit” · John 15:8</span>
+            <p class="body">Reproducing. Leading in ministry and walking other people through this very same journey — the pathway is now running through them.</p>
+            <div class="win"><b>The win</b>They’re now helping others look more like Jesus.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="foundation">
+  <div class="under-cue" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Underneath the whole path</div>
+      <h2>Relationships, not a conveyor belt</h2>
+      <p>The tools above are how we move people — but the engine is relational. Two things run beneath every chair so this stays personal: people, not programs.</p>
+    </div>
+    <div class="f-grid">
+      <div class="fcard">
+        <h4>Circles of Concern</h4>
+        <p>“One at a time” gets specific. Everyone keeps a simple circle of people they’re walking with — so disciple-making is who you’re reaching, not just what you attend.</p>
+        <div class="circles" role="img" aria-label="Circles of Concern — three unbelievers, two new believers, one accountability partner">
+          <span class="cc-lab lab-unb">Unbelievers</span>
+          <span class="cc-lab lab-new">New Believers</span>
+          <span class="cc-lab lab-acc">Accountability</span>
+          <div class="ccircle c-unbeliever"><span class="cc-names">Tim<br>Greg<br>Jason</span></div>
+          <div class="ccircle c-newbeliever"><span class="cc-names">Mark<br>Aaron</span></div>
+          <div class="ccircle c-accountable"><span class="cc-names">Joseph&nbsp;Kerr</span></div>
+        </div>
+        <p class="circles-cap"><b>3 · 2 · 1</b> — a simple rhythm everyone can carry. Pray for them by name.</p>
+      </div>
+      <div class="fcard">
+        <h4>The 4-Chair Assessment</h4>
+        <p>Before anyone takes a next step, they name where they are. The assessment helps a person find their chair — and gives them vision for what to grow into next.</p>
+        <div class="assess-step"><span class="dot"></span>Take the assessment → <strong>&nbsp;find your chair</strong></div>
+        <div class="assess-step"><span class="dot"></span>See your chair → <strong>&nbsp;see your next step</strong></div>
+        <div class="assess-step"><span class="dot"></span>Take the step → <strong>&nbsp;a leader walks with you</strong></div>
+        <a class="assess-cta" href="inventory.html">Take the 4-Chair Assessment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="big">One pathway. <span>Every ministry. Every campus.</span></p>
+    <p>Men’s, Women’s, Kid’s, Student’s, Groups, Guest Experience — different front doors, the <em>same</em> pathway, the same language, the same way of measuring growth: people responding to Jesus’ next challenge. Each ministry plugs its own next steps into this shared framework.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="draft">Vision-cast draft · layout option A (poster) · framework adapted from Sonlife “4 Chair Discipling.”</span>
+  </div>
+</footer>
+
+<script>
+/* draw the hero underline when it scrolls into view */
+(function(){
+  var marks=document.querySelectorAll('.uline');
+  if(!('IntersectionObserver' in window)){marks.forEach(function(m){m.classList.add('drawn');});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('drawn');io.unobserve(e.target);}});},{threshold:0.6});
+  marks.forEach(function(m){io.observe(m);});
+})();
+</script>
+</body>
+</html>

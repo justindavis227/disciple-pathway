@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Circles — fillable 4×6 card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --font-sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; }
+  html,body{margin:0}
+  body{
+    background:#1b2733;display:flex;align-items:flex-start;justify-content:center;
+    padding:84px 16px 40px;min-height:100vh;box-sizing:border-box;font-family:var(--font-sans);
+  }
+
+  /* ---- card (true size 384x576 = 4x6in @96dpi) ---- */
+  .cc-card{
+    width:384px;height:576px;box-sizing:border-box;padding:26px 26px 22px;
+    font-family:var(--font-sans);display:flex;flex-direction:column;
+    -webkit-font-smoothing:antialiased;background:#fff;border-radius:6px;
+    box-shadow:0 12px 40px rgba(0,0,0,.35);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .cc-head{flex:0 0 auto}
+  .cc-title{margin:0;font-size:25px;font-weight:700;letter-spacing:-.02em;line-height:1.05;color:#1E1E1E}
+  .cc-intro{margin:7px 0 0;font-size:12.5px;font-weight:400;line-height:1.35;color:#6B7280}
+
+  .cc-panel{margin:15px 0 0;border-radius:18px;flex:1 1 auto;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+  .cc-venn{position:relative;width:332px;height:300px}
+
+  .disc{position:absolute;width:184px;height:184px;border-radius:50%;box-sizing:border-box}
+  .d-orange{left:20px;top:24px;--c:#CD6248}
+  .d-teal{left:132px;top:24px;--c:#188698}
+  .d-purple{left:76px;top:104px;--c:#5250D0}
+
+  .grp{position:absolute;display:flex;flex-direction:column;align-items:center;z-index:5}
+  .grp-orange{left:46.5px;top:47px;width:75px;gap:0}
+  .grp-teal{left:220.5px;top:68px;width:75px;gap:0}
+  .grp-purple{left:130.5px;top:224px;width:75px;gap:5px}
+
+  input.wl{
+    -webkit-appearance:none;appearance:none;background:transparent;border:none;
+    border-bottom:1.6px solid;height:17px;width:100%;padding:0 2px 1px;margin:0;
+    font-family:var(--font-sans);font-size:12px;font-weight:600;text-align:center;outline:none;box-sizing:border-box;
+  }
+  input.wl:focus{border-bottom-width:2px}
+  input.wl::placeholder{color:inherit;opacity:.4}
+
+  .cc-legend{list-style:none;margin:16px 0 0;padding:0;flex:0 0 auto;display:flex;flex-direction:column;gap:9px}
+  .cc-legend li{display:flex;align-items:baseline;gap:6px;font-size:12px;line-height:1.2;white-space:nowrap}
+  .cc-num{font-weight:700}
+  .cc-lbl{font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .cc-q{font-weight:400;color:#6B7280}
+
+  /* ---- looks ---- */
+  /* dark */
+  .look-dark .cc-panel{background:#0E2126;border:none}
+  .look-dark .disc{background:color-mix(in srgb,var(--c) 92%,transparent);mix-blend-mode:screen;border:none}
+  .look-dark input.wl{border-bottom-color:rgba(255,255,255,.9);color:#fff}
+  /* tinted */
+  .look-light .cc-panel{background:#F9FAFB;border:1px solid #E5E7EB}
+  .look-light .disc{background:color-mix(in srgb,var(--c) 26%,transparent);mix-blend-mode:multiply;border:none}
+  .look-light input.wl{border-bottom-color:rgba(31,41,55,.55);color:#1E1E1E}
+  /* outline */
+  .look-outline .cc-panel{background:#fff;border:1px solid #E5E7EB}
+  .look-outline .disc{background:transparent;border:1.6px solid var(--c);mix-blend-mode:normal}
+  .look-outline input.wl{border-bottom-color:rgba(31,41,55,.5);color:#1E1E1E}
+
+  /* ---- toolbar ---- */
+  .bar{
+    position:fixed;top:16px;left:50%;transform:translateX(-50%);
+    display:flex;gap:8px;align-items:center;background:#fff;border:1px solid #E5E7EB;border-radius:999px;
+    padding:6px 6px 6px 14px;box-shadow:0 4px 14px rgba(15,17,23,.18);font-family:var(--font-sans);z-index:50;
+  }
+  .bar .lab{font-size:12px;font-weight:600;color:#6B7280;letter-spacing:.04em;text-transform:uppercase}
+  .bar .seg{display:flex;gap:2px;background:#F3F4F6;border-radius:999px;padding:3px}
+  .bar .seg button{border:none;background:transparent;cursor:pointer;font:600 12.5px var(--font-sans);color:#374151;padding:5px 11px;border-radius:999px}
+  .bar .seg button[aria-pressed="true"]{background:#0F1117;color:#fff}
+  .bar .print{border:none;cursor:pointer;background:#3B82F6;color:#fff;font:600 12.5px var(--font-sans);padding:7px 14px;border-radius:999px}
+  .bar .print:hover{background:#2563EB}
+
+  /* ---- exact 4x6 print, edge to edge ---- */
+  @page{size:4in 6in;margin:0}
+  @media print{
+    body{background:#fff;padding:0;display:block;min-height:0}
+    .cc-card{box-shadow:none;border-radius:0}
+    .bar{display:none !important}
+  }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <span class="lab">Look</span>
+    <div class="seg" id="seg">
+      <button data-look="dark">Dark</button>
+      <button data-look="light">Tinted</button>
+      <button data-look="outline">Outline</button>
+    </div>
+    <button class="print" id="printBtn">Save as PDF ↓</button>
+  </div>
+
+  <div class="cc-card look-outline" id="card">
+    <div class="cc-head">
+      <h1 class="cc-title">My Circles</h1>
+      <p class="cc-intro">Fill in who you are walking with:</p>
+    </div>
+
+    <div class="cc-panel">
+      <div class="cc-venn">
+        <div class="disc d-orange"></div>
+        <div class="disc d-teal"></div>
+        <div class="disc d-purple"></div>
+
+        <div class="grp grp-orange">
+          <input class="wl" type="text" aria-label="Unbeliever 1" />
+          <input class="wl" type="text" aria-label="Unbeliever 2" />
+          <input class="wl" type="text" aria-label="Unbeliever 3" />
+        </div>
+        <div class="grp grp-teal">
+          <input class="wl" type="text" aria-label="New believer 1" />
+          <input class="wl" type="text" aria-label="New believer 2" />
+        </div>
+        <div class="grp grp-purple">
+          <input class="wl" type="text" aria-label="Accountability" />
+        </div>
+      </div>
+    </div>
+
+    <ul class="cc-legend">
+      <li><span class="cc-num" style="color:#C7553B">3</span><span class="cc-lbl" style="color:#C7553B">UNBELIEVERS</span><span class="cc-q">— who are you praying for?</span></li>
+      <li><span class="cc-num" style="color:#0E7C8E">2</span><span class="cc-lbl" style="color:#0E7C8E">NEW BELIEVERS</span><span class="cc-q">— who are you helping grow?</span></li>
+      <li><span class="cc-num" style="color:#5B57E0">1</span><span class="cc-lbl" style="color:#5B57E0">ACCOUNTABILITY</span><span class="cc-q">— who is helping you grow?</span></li>
+    </ul>
+  </div>
+
+<script>
+  (function(){
+    var card=document.getElementById('card');
+    var seg=document.getElementById('seg');
+    var saved=null; try{saved=localStorage.getItem('mc-look');}catch(e){}
+    var look=saved||'outline';
+    function apply(k){
+      card.className='cc-card look-'+k;
+      seg.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.look===k);});
+      try{localStorage.setItem('mc-look',k);}catch(e){}
+    }
+    seg.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){apply(b.dataset.look);});
+    });
+    document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+    apply(look);
+  })();
+</script>
+</body>
+</html>

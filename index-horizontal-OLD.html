@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Southeast Disciple-Making Pathway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* =====================================================================
+   BRAND TOKENS  — swap these for Southeast's real brand and the whole
+   page reskins. (Current values are tasteful placeholders.)
+   ===================================================================== */
+:root{
+  /* core brand — SOUTHEAST (pulled from se.church Webflow tokens) */
+  --bg:        #fef0e4;   /* warm linen — SE --linen */
+  --surface:   #fffbf7;   /* warm off-white cards — SE --focus */
+  --ink:       #1d1f21;   /* warm near-black — SE --black */
+  --ink-soft:  #616264;   /* secondary text — SE --text */
+  --line:      #d2d2d3;   /* hairlines — SE --stroke */
+  --accent:    #112b52;   /* SE navy — primary accent */
+  --accent-2:  #233e96;   /* SE royal blue — emphasis accent */
+
+  /* the four chairs — sky -> navy ramp (growing intensity, in-brand) */
+  --c1: #2f9bc4;  --c1-tint:#dff3f8;   /* Seeker  / Reach    */
+  --c2: #3f7fae;  --c2-tint:#d6e6ef;   /* Believer/ Build    */
+  --c3: #233e96;  --c3-tint:#dde2f0;   /* Worker  / Equip    */
+  --c4: #112b52;  --c4-tint:#d4dae8;   /* Maker   / Multiply */
+
+  /* type — SE leads with an editorial serif (Ivy Journal); Fraunces is the
+     embeddable free stand-in. Body stays Inter, matching SE. */
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', system-ui, sans-serif;
+
+  --radius:16px;
+  --shadow:0 1px 2px rgba(31,39,48,.04), 0 12px 30px rgba(31,39,48,.07);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- HERO ---------- */
+header.hero{padding:64px 0 28px;text-align:center}
+.eyebrow{
+  font-family:var(--font-display);
+  font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  font-size:12px;color:var(--accent);margin-bottom:18px;
+}
+h1{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(34px,6vw,62px);line-height:1.14;letter-spacing:-.02em;
+  color:var(--ink);max-width:24ch;margin:0 auto;
+}
+h1 .alt{color:var(--accent-2)}
+/* hand-drawn wavy underline accents — draw themselves when scrolled into view */
+.uline,.uline2{position:relative;white-space:nowrap}
+.squiggle{position:absolute;left:-3%;bottom:-.24em;width:106%;height:.48em;overflow:visible}
+.squiggle2{position:absolute;left:-2%;bottom:-.18em;width:104%;height:.40em;overflow:visible}
+.squiggle path,.squiggle2 path{fill:none;stroke:#e07a4f;vector-effect:non-scaling-stroke;
+  stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100}
+.squiggle path{stroke-width:7}
+.squiggle2 path{stroke-width:5.5}
+.uline.drawn .squiggle path{animation:squiggle-draw 1s ease forwards}
+.uline2.drawn .squiggle2 path{animation:squiggle-draw 1.1s ease forwards}
+@keyframes squiggle-draw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){
+  .squiggle path,.squiggle2 path{animation:none!important;stroke-dashoffset:0}
+}
+.lede{
+  max-width:640px;margin:18px auto 0;font-size:clamp(16px,2.1vw,19px);
+  color:var(--ink-soft);
+}
+.vision{
+  margin:22px auto 0;font-family:var(--font-display);font-style:italic;
+  font-weight:500;font-size:clamp(15px,2vw,18px);color:var(--ink);
+  max-width:680px;
+}
+.movement-legend{
+  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:26px;
+}
+.movement-legend span{
+  font-family:var(--font-display);font-weight:600;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+  padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);
+}
+/* compact instruction sequence above the on-ramps, left-aligned */
+.howto{margin:2px 0 18px;max-width:360px}
+.howto p{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.45;
+  color:var(--ink-soft);margin:5px 0}
+.howto p b{color:var(--accent);font-weight:700}
+.howto .n{flex:none;width:17px;height:17px;border-radius:50%;background:var(--accent);color:#fff;
+  font-family:var(--font-display);font-weight:700;font-size:10px;
+  display:flex;align-items:center;justify-content:center;margin-top:1px}
+/* spacer/divider that defines the instruction zone from the pathway below */
+.howto-sep{height:1px;background:var(--line);margin:8px 0 32px}
+
+/* ---------- PATHWAY ---------- */
+section.pathway{padding:30px 0 10px;position:relative}
+
+/* on-ramps row */
+.onramps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:14px;
+}
+/* on-ramps as THOUGHT BUBBLES — what the next generation is thinking */
+.onramp{
+  text-align:center;font-family:var(--font-display);font-weight:600;font-style:italic;
+  font-size:13.5px;color:var(--ink);background:var(--surface);
+  border:1.5px solid var(--line);border-radius:24px;padding:13px 14px;position:relative;
+  cursor:pointer;margin-bottom:22px;box-shadow:0 3px 12px rgba(31,39,48,.06);
+  transition:border-color .18s,color .18s,transform .18s,box-shadow .18s;
+}
+.onramp small{display:block;font-family:var(--font-body);font-weight:500;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1px}
+.onramp:hover,.onramp.active{
+  border-color:var(--accent);color:var(--accent);
+  transform:translateY(-2px);box-shadow:0 7px 18px rgba(31,39,48,.10);
+}
+/* thought-bubble tail — two shrinking puffs pointing down to the chair below */
+.onramp::before,.onramp::after{
+  content:"";position:absolute;left:50%;border-radius:50%;
+  background:var(--surface);border:1.5px solid var(--line);transition:border-color .18s;
+}
+.onramp::before{width:12px;height:12px;bottom:-8px;transform:translateX(-50%)}
+.onramp::after{width:7px;height:7px;bottom:-18px;transform:translateX(-50%)}
+.onramp:hover::before,.onramp.active::before,
+.onramp:hover::after,.onramp.active::after{border-color:var(--accent)}
+
+/* chairs + connectors grid */
+.track{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+  align-items:stretch;gap:0;
+}
+/* each chair + its tools are wrapped in a .unit. display:contents makes the
+   wrapper vanish on the wide layout (so it stays the linear grid above),
+   then the units become real boxes and regroup as the screen narrows. */
+.unit{display:contents}
+.chair{
+  background:var(--cc);border:none;
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 16px 16px;
+  cursor:pointer;transition:transform .18s ease, box-shadow .18s ease;
+  display:flex;flex-direction:column;gap:8px;min-height:178px;position:relative;
+  text-align:left;
+}
+.chair:hover{transform:translateY(-4px);box-shadow:0 6px 14px rgba(31,39,48,.08),0 22px 44px rgba(31,39,48,.10)}
+.chair:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.chair .num{
+  width:34px;height:34px;border-radius:50%;background:var(--cc);color:#fff;
+  font-family:var(--font-display);font-weight:800;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+.chair-icon{width:62px;height:62px;object-fit:contain;display:block;margin-bottom:6px;
+  padding:7px;box-sizing:border-box;border-radius:50%;
+  background:#fff;box-shadow:0 2px 7px rgba(0,0,0,.18)}
+.cnum{font-family:var(--font-display);font-weight:700;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.chair .role{font-family:var(--font-display);font-weight:800;font-size:17px;letter-spacing:-.03em;white-space:nowrap;color:#fff}
+.chair .invite{color:rgba(255,255,255,.95);font-weight:600;font-size:14px}
+.chair .move{
+  margin-top:auto;display:flex;flex-direction:column;gap:2px;
+}
+.chair .move .verb{
+  font-family:var(--font-display);font-weight:800;font-size:14px;
+  letter-spacing:.12em;text-transform:uppercase;color:#fff;
+}
+.chair .move .win{
+  font-family:var(--font-body);font-weight:500;font-size:12px;color:rgba(255,255,255,.82);
+}
+.chair .ref{font-size:12px;color:rgba(255,255,255,.72)}
+.chair .more{font-size:11.5px;color:rgba(255,255,255,.92);font-weight:600;opacity:.0;transition:opacity .18s}
+.chair:hover .more,.chair.active .more{opacity:1}
+.chair.active{box-shadow:0 0 0 3px rgba(255,255,255,.7), var(--shadow)}
+
+/* connector cells hold the catalysts */
+.gap{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:7px;padding:0 12px;min-width:140px;position:relative;
+}
+.gap .glabel{
+  font-family:var(--font-display);font-weight:600;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:1px;
+}
+.cat{
+  width:100%;text-align:center;background:var(--surface);
+  border:1px solid var(--line);border-radius:10px;padding:8px 8px;
+  font-family:var(--font-display);font-weight:600;font-size:12.5px;color:var(--ink);
+  cursor:pointer;transition:all .15s ease;line-height:1.2;
+}
+.cat:hover{border-color:var(--catc);color:var(--catc);transform:translateY(-2px)}
+.cat:focus-visible{outline:3px solid var(--catc);outline-offset:2px}
+.cat.active{background:var(--catc);color:#fff;border-color:var(--catc)}
+
+.track-wrap{position:relative}
+.track,.onramps{position:relative;z-index:1}
+
+/* ---------- DETAIL PANEL ---------- */
+.detail{
+  margin-top:26px;background:var(--surface);border:1px solid var(--line);
+  border-left:5px solid var(--accent);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px 24px;
+  display:none;
+}
+.detail.show{display:block;animation:rise .28s ease}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.detail .tag{
+  font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:6px;
+}
+.detail h3{font-family:var(--font-display);font-weight:800;font-size:24px;letter-spacing:-.01em;margin-bottom:4px}
+.detail .sub{color:var(--ink-soft);font-size:14px;margin-bottom:10px}
+.detail p{font-size:15.5px;color:var(--ink);max-width:760px}
+.detail .win{
+  margin-top:12px;font-size:14px;color:var(--ink-soft);
+  border-top:1px dashed var(--line);padding-top:10px;
+}
+.detail .win b{color:var(--ink)}
+
+/* ---------- FOUNDATION ---------- */
+section.foundation{padding:72px 0 54px;margin-top:36px;position:relative;
+  background:linear-gradient(180deg,#f7e7d6 0%, #f0dbc4 100%);
+  border-top:1px solid #ead5bc;
+  box-shadow:inset 0 26px 38px -26px rgba(31,39,48,.30)}
+/* "underneath" cue — the pathway above rests on this foundation layer */
+.under-cue{position:absolute;top:-23px;left:50%;transform:translateX(-50%);
+  width:46px;height:46px;border-radius:50%;background:var(--surface);
+  border:1px solid var(--line);box-shadow:var(--shadow);z-index:3;
+  display:flex;align-items:center;justify-content:center}
+.under-cue i{display:block;width:11px;height:11px;
+  border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);
+  transform:translateY(-3px) rotate(45deg)}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fcard{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:24px;
+}
+.fcard h4{font-family:var(--font-display);font-weight:800;font-size:18px;margin-bottom:8px}
+.fcard p{font-size:14.5px;color:var(--ink-soft)}
+/* Circles of Concern — luminous overlapping circles, fully proportional.
+   aspect-ratio + container queries make it scale as one unit (TV → phone). */
+.circles{
+  position:relative;width:100%;aspect-ratio:100/84;
+  margin:18px 0 8px;border-radius:18px;overflow:hidden;container-type:inline-size;
+  background:radial-gradient(125% 130% at 50% 30%, #1d345f 0%, #122244 52%, #0b1428 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.05), inset 0 -44px 90px rgba(0,0,0,.28);
+}
+.ccircle{position:absolute;width:46cqw;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%)}
+.c-unbeliever {left:33%;top:34%;background:rgba(221,104,76,.80)}
+.c-newbeliever{left:67%;top:34%;background:rgba(84,189,219,.72)}
+.c-accountable{left:50%;top:64%;background:rgba(104,100,233,.74)}
+/* mock names sit in each circle's clear lobe */
+.cc-names{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  text-align:center;color:#fff;font-family:var(--font-body);font-weight:600;
+  font-size:clamp(11px,3.7cqw,18px);line-height:1.34;text-shadow:0 1px 5px rgba(0,0,0,.22)}
+.c-unbeliever  .cc-names,
+.c-newbeliever .cc-names,
+.c-accountable .cc-names{left:50%;top:50%}
+/* labels live in the dark margins, never covered */
+.cc-lab{position:absolute;font-size:clamp(9px,3cqw,13px);font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase}
+.lab-unb{top:3.5%;left:5%;color:#f3a98e}
+.lab-new{top:3.5%;right:5%;color:#9adcef}
+.lab-acc{bottom:3.5%;left:50%;transform:translateX(-50%);color:#b0adf9}
+.circles-cap{font-size:12px;color:var(--ink-soft);margin-top:2px}
+.circles-cap b{color:var(--accent)}
+.assess-step{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:14px;color:var(--ink)}
+.assess-step .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-2);flex:none}
+.assess-cta{display:inline-block;margin-top:16px;background:var(--accent);color:#fff;
+  text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:13px;
+  letter-spacing:.04em;padding:11px 20px;border-radius:10px;transition:background .18s,transform .18s}
+.assess-cta:hover{background:#0c1f3d;transform:translateY(-2px)}
+
+.section-head{text-align:center;margin-bottom:26px}
+.section-head .eyebrow{margin-bottom:10px}
+.section-head h2{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,4vw,38px);letter-spacing:-.02em}
+.section-head p{color:var(--ink-soft);max-width:620px;margin:8px auto 0}
+
+/* ---------- CLOSING ---------- */
+section.closing{padding:54px 0 30px;text-align:center}
+.closing .big{
+  font-family:var(--font-display);font-weight:800;font-size:clamp(26px,4.5vw,44px);
+  letter-spacing:-.02em;line-height:1.05;
+}
+.closing .big span{color:var(--accent-2)}
+.closing p{color:var(--ink-soft);max-width:640px;margin:16px auto 0;font-size:16px}
+
+footer{padding:30px 0 50px;text-align:center;color:var(--ink-soft);font-size:12.5px}
+footer .draft{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--surface)}
+
+/* ---------- RESPONSIVE ---------- */
+/* STAGE 2 (≤1180): 2×2 grid — each unit is a chair beside its tools.
+   Chair1/Tools  ·  Chair2/Tools
+   Chair3/Tools  ·  Chair4/Tools */
+@media(max-width:1180px){
+  .onramps{display:none}
+  .track{display:grid;grid-template-columns:1fr 1fr;gap:28px 22px;align-items:start}
+  .unit{display:flex;flex-direction:row;align-items:stretch;gap:12px}
+  .unit .chair{flex:1 1 auto}
+  .unit .gap{flex:0 0 134px;min-width:0;padding:0}
+  .unit-last .chair{max-width:calc(100% - 146px)}
+}
+/* STAGE 3 (≤680): single column — chair still beside its tools, stacked down.
+   Chair1/Tools  /  Chair2/Tools  /  Chair3/Tools  /  Chair4/Tools */
+@media(max-width:680px){
+  .track{grid-template-columns:1fr;gap:18px}
+  .f-grid{grid-template-columns:1fr}
+}
+/* STAGE 4 (≤440): single column — chair stacked OVER its tools.
+   Chair1 / Tools / Chair2 / Tools / … */
+@media(max-width:440px){
+  .unit{flex-direction:column;gap:12px}
+  .unit .chair{min-height:auto}
+  .unit-last .chair{max-width:none}
+  .unit .gap{flex:0 0 auto;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:0}
+  .unit .cat{width:auto;flex:1 1 40%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Southeast&nbsp;·&nbsp;Disciple-Making Pathway</div>
+    <h1>Build a Disciple-Making <span class="uline">Culture<svg class="squiggle" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M5,23 C44,5 78,6 110,21 C142,36 168,7 208,19 C244,29 270,13 295,22"/></svg></span> from the life of Christ.</h1>
+  </div>
+</header>
+
+<section class="pathway">
+  <div class="wrap">
+
+    <!-- HOW TO READ IT -->
+    <div class="howto">
+      <p><span class="n">1</span> Tap a <b>chair</b> to see the win at that stage.</p>
+      <p><span class="n">2</span> Tap a <b>tool</b> to see how it moves someone forward.</p>
+    </div>
+
+    <div class="howto-sep" aria-hidden="true"></div>
+
+    <!-- ON-RAMPS -->
+    <div class="onramps">
+      <button class="onramp" data-detail="ramp1">“I want to explore Jesus”</button>
+      <button class="onramp" data-detail="ramp2">“I want to grow in Jesus”</button>
+      <button class="onramp" data-detail="ramp3">“I want to explore my calling”</button>
+      <button class="onramp" data-detail="ramp4">“I want to make disciples”</button>
+    </div>
+
+    <!-- CHAIRS + CATALYSTS -->
+    <div class="track-wrap">
+      <div class="track">
+
+        <div class="unit">
+        <!-- CHAIR 1 -->
+        <button class="chair" data-detail="chair1" style="--cc:var(--c1);--cc-tint:var(--c1-tint)">
+          <img class="chair-icon" src="images/chair-1.png" alt="" />
+          <span class="cnum">Chair 01</span>
+          <span class="role">Seeker</span>
+          <span class="invite">“Come and See”</span>
+          <span class="ref">John 1:39</span>
+          <span class="move"><b class="verb">Reach</b><span class="win">win the lost</span></span>
+          <span class="more">Details →</span>
+        </button>
+
+        <!-- GAP 1 -> 2 -->
+        <div class="gap">
+          <button class="cat" data-detail="alpha"      style="--catc:var(--c1)">Alpha</button>
+          <button class="cat" data-detail="baptism"    style="--catc:var(--c1)">Baptism Class</button>
+          <button class="cat" data-detail="nextsteps"  style="--catc:var(--c1)">Next Steps Room</button>
+        </div>
+        </div>
+
+        <div class="unit">
+        <!-- CHAIR 2 -->
+        <button class="chair" data-detail="chair2" style="--cc:var(--c2);--cc-tint:var(--c2-tint)">
+          <img class="chair-icon" src="images/chair-2.png" alt="" />
+          <span class="cnum">Chair 02</span>
+          <span class="role">Believer</span>
+          <span class="invite">“Follow Me”</span>
+          <span class="ref">John 1:43</span>
+          <span class="move"><b class="verb">Build</b><span class="win">grow the believer</span></span>
+          <span class="more">Details →</span>
+        </button>
+
+        <!-- GAP 2 -> 3 -->
+        <div class="gap">
+          <button class="cat" data-detail="rooted"    style="--catc:var(--c2)">Rooted</button>
+          <button class="cat" data-detail="unleashed" style="--catc:var(--c2)">Unleashed Workshop</button>
+        </div>
+        </div>
+
+        <div class="unit">
+        <!-- CHAIR 3 -->
+        <button class="chair" data-detail="chair3" style="--cc:var(--c3);--cc-tint:var(--c3-tint)">
+          <img class="chair-icon" src="images/chair-3.png" alt="" />
+          <span class="cnum">Chair 03</span>
+          <span class="role">Worker</span>
+          <span class="invite">“Fish for People”</span>
+          <span class="ref">Matthew 4:19</span>
+          <span class="move"><b class="verb">Equip</b><span class="win">train the worker</span></span>
+          <span class="more">Details →</span>
+        </button>
+
+        <!-- GAP 3 -> 4 -->
+        <div class="gap">
+          <button class="cat" data-detail="likejesus" style="--catc:var(--c3)">Like Jesus Content</button>
+        </div>
+        </div>
+
+        <div class="unit unit-last">
+        <!-- CHAIR 4 -->
+        <button class="chair" data-detail="chair4" style="--cc:var(--c4);--cc-tint:var(--c4-tint)">
+          <img class="chair-icon" src="images/chair-4.png" alt="" />
+          <span class="cnum">Chair 04</span>
+          <span class="role">Disciple-Maker</span>
+          <span class="invite">“Bear Much Fruit”</span>
+          <span class="ref">John 15:8</span>
+          <span class="move"><b class="verb">Multiply</b><span class="win">send the maker</span></span>
+          <span class="more">Details →</span>
+        </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <div class="detail" id="detail">
+      <div class="tag" id="d-tag"></div>
+      <h3 id="d-title"></h3>
+      <div class="sub" id="d-sub"></div>
+      <p id="d-body"></p>
+      <div class="win" id="d-win"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="foundation">
+  <div class="under-cue" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Underneath the whole path</div>
+      <h2><span class="uline2">Relationships<svg class="squiggle2" viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3,18 C18,4 33,4 48,17 C63,30 78,30 93,17 C108,4 123,4 138,17 C153,30 168,30 183,17 C198,4 213,4 228,17 C243,30 268,28 297,16"/></svg></span>, not a conveyor belt</h2>
+      <p>The tools above are how we move people — but the engine is relational. Two things run beneath every chair so this stays personal: people, not programs.</p>
+    </div>
+    <div class="f-grid">
+
+      <div class="fcard">
+        <h4>Circles of Concern</h4>
+        <p>“One at a time” gets specific. Everyone keeps a simple circle of people they’re walking with — so disciple-making is who you’re reaching, not just what you attend.</p>
+        <div class="circles" role="img" aria-label="Circles of Concern — three unbelievers, two new believers, one accountability partner">
+          <span class="cc-lab lab-unb">Unbelievers</span>
+          <span class="cc-lab lab-new">New Believers</span>
+          <span class="cc-lab lab-acc">Accountability</span>
+          <div class="ccircle c-unbeliever"><span class="cc-names">Tim<br>Greg<br>Jason</span></div>
+          <div class="ccircle c-newbeliever"><span class="cc-names">Mark<br>Aaron</span></div>
+          <div class="ccircle c-accountable"><span class="cc-names">Joseph&nbsp;Kerr</span></div>
+        </div>
+        <p class="circles-cap"><b>3 · 2 · 1</b> — a simple rhythm everyone can carry. Pray for them by name.</p>
+      </div>
+
+      <div class="fcard">
+        <h4>The 4-Chair Assessment</h4>
+        <p>Before anyone takes a next step, they name where they are. The assessment helps a person find their chair — and gives them vision for what to grow into next.</p>
+        <div class="assess-step"><span class="dot"></span>Take the assessment → <strong>&nbsp;find your chair</strong></div>
+        <div class="assess-step"><span class="dot"></span>See your chair → <strong>&nbsp;see your next step</strong></div>
+        <div class="assess-step"><span class="dot"></span>Take the step → <strong>&nbsp;a leader walks with you</strong></div>
+        <a class="assess-cta" href="inventory.html">Take the 4-Chair Assessment →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="big">One pathway. <span>Every ministry. Every campus.</span></p>
+    <p>Men’s, Women’s, Kid’s, Student’s, Groups, Guest Experience — different front doors, the <em>same</em> pathway, the same language, the same way of measuring growth: people responding to Jesus’ next challenge. Each ministry plugs its own next steps into this shared framework.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="draft">Vision-cast draft v1 · brand colors &amp; fonts are placeholders pending Southeast’s brand assets · framework adapted from Sonlife “4 Chair Discipling.”</span>
+  </div>
+</footer>
+
+<script>
+/* ---- detail content for every clickable node ---- */
+const DATA = {
+  /* on-ramps */
+  ramp1:{tag:"Seeker",title:"“I want to explore Jesus”",sub:"The starting line for the curious and the far-from-God.",body:"Someone doesn’t have to believe yet to take a step. This on-ramp drops a person into Chair 1, where the only ask is to come and see who Jesus is.",win:""},
+  ramp2:{tag:"Believer",title:"“I want to grow in Jesus”",sub:"For the new or stalled believer ready to go deeper.",body:"A person who has said yes to Jesus but wants to actually follow Him steps onto the path at Chair 2 — ready to be built up in the basics of the faith.",win:""},
+  ramp3:{tag:"Worker",title:"“I want to explore my calling”",sub:"For the believer sensing there’s more to give.",body:"Someone ready to serve, discover their gifts, and labor in the harvest enters at Chair 3, where we equip workers for the mission.",win:""},
+  ramp4:{tag:"Disciple-Maker",title:"“I want to make disciples”",sub:"For the worker ready to reproduce.",body:"A person ready to lead others on this same journey steps in at Chair 4 — no longer just growing, but multiplying.",win:""},
+
+  /* chairs */
+  chair1:{tag:"Chair 1 · Reach",title:"Seeker",sub:"“Come and See” · John 1:39",body:"Far from God or simply curious. They’re not a project — they’re a person invited to explore who Jesus is, at their own pace, inside a real relationship.",win:"<b>The win:</b> they take a genuine step toward Jesus — and someone is walking with them when they do."},
+  chair2:{tag:"Chair 2 · Build",title:"Believer",sub:"“Follow Me” · John 1:43",body:"Has put their faith in Jesus and is learning what it means to follow Him. The focus here is being built up in the basic rhythms and tenets of the faith.",win:"<b>The win:</b> rooted in the basics and owning their faith — no longer a spectator."},
+  chair3:{tag:"Chair 3 · Equip",title:"Worker",sub:"“Fish for People” · Matthew 4:19",body:"Ready to serve and labor in the harvest. They’re discovering their gifts and calling and stepping into the work of ministry alongside others.",win:"<b>The win:</b> serving on mission and equipped to lead — a laborer, not just an attender."},
+  chair4:{tag:"Chair 4 · Multiply",title:"Disciple-Maker",sub:"“Bear Much Fruit” · John 15:8",body:"Reproducing. They’re leading in ministry and walking other people through this very same journey — the pathway is running through them.",win:"<b>The win:</b> they’re now helping others look more like Jesus."},
+
+  /* catalysts */
+  alpha:{tag:"Tool · moves Chair 1 → 2",title:"Alpha",sub:"Exploratory study",body:"An exploratory study that answers the real questions the next generation is asking about faith, life, and Jesus — a low-pressure on-ramp for the curious.",win:""},
+  baptism:{tag:"Tool · moves Chair 1 → 2",title:"Baptism Class",sub:"Understanding the commitment",body:"Helps someone understand the commitment to Christ they are making, so baptism is a clear, owned public declaration that Jesus is Lord of their life.",win:""},
+  nextsteps:{tag:"Tool · moves Chair 1 → 2",title:"Next Steps Room",sub:"Built into every service",body:"Our built-in process every weekend — a place to be relationally walked through a decision to follow Jesus, in person, right when someone is ready.",win:""},
+  rooted:{tag:"Tool · moves Chair 2 → 3",title:"Rooted",sub:"The basics of following Jesus",body:"A study through the basic tenets of following Jesus, built around 7 rhythms of a healthy disciple — establishing the foundations every believer needs.",win:""},
+  unleashed:{tag:"Tool · moves Chair 2 → 3",title:"Unleashed Workshop",sub:"Gifts & calling",body:"Southeast’s own workshop for identifying your spiritual gifts and discerning where — and to what — God might be calling you. The bridge from growing to serving.",win:""},
+  likejesus:{tag:"Tool · moves Chair 3 → 4",title:"Like Jesus Content",sub:"Walk Like Jesus · Live Like Jesus · 4-Chair Book",body:"SonLife leader-training booklets used to train up leaders in every ministry the same way — so a leader in Women’s, Men’s, Kids, or Students is all formed in the life of Christ identically. This shared training is what keeps the whole church on one pathway.",win:""}
+};
+
+const detail = document.getElementById('detail');
+const els = {tag:document.getElementById('d-tag'),title:document.getElementById('d-title'),sub:document.getElementById('d-sub'),body:document.getElementById('d-body'),win:document.getElementById('d-win')};
+let current = null;
+
+function clearActive(){document.querySelectorAll('.chair.active,.cat.active,.onramp.active').forEach(e=>e.classList.remove('active'));}
+
+document.querySelectorAll('[data-detail]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const key = btn.getAttribute('data-detail');
+    if(current===key){ // toggle off
+      detail.classList.remove('show');clearActive();current=null;return;
+    }
+    const d = DATA[key]; if(!d) return;
+    els.tag.textContent=d.tag;
+    els.title.textContent=d.title;
+    els.sub.textContent=d.sub;
+    els.body.textContent=d.body;
+    els.win.innerHTML=d.win||'';
+    els.win.style.display = d.win ? 'block':'none';
+    clearActive();btn.classList.add('active');
+    detail.classList.add('show');
+    current=key;
+    detail.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+});
+
+/* draw each hand-drawn underline when it scrolls into view */
+(function(){
+  var marks=document.querySelectorAll('.uline,.uline2');
+  if(!('IntersectionObserver' in window)){marks.forEach(function(m){m.classList.add('drawn');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('drawn');io.unobserve(e.target);}
+    });
+  },{threshold:0.6});
+  marks.forEach(function(m){io.observe(m);});
+})();
+</script>
+</body>
+</html>
